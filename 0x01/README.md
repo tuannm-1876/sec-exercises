@@ -10,7 +10,7 @@ Viết biểu diễn của số `1234` sang:
 
 # Bài 2
 
-Tự việt hàm `my_base64_encode` và `my_base64_decode` bằng ngôn ngữ tự chọn, sử dụng alphabet: `A-Za-z0-9=~.`
+Tự viết hàm `my_base64_encode` và `my_base64_decode` bằng ngôn ngữ tự chọn, sử dụng alphabet: `A-Za-z0-9=~.`
 
 # Bài 3
 
@@ -23,3 +23,9 @@ https://ksnctf.sweetduet.info/problem/2
 Giải bài CTF sau:
 
 https://ksnctf.sweetduet.info/problem/5
+
+# Bài 5
+
+Source: `Mates CTF 2019`
+
+Giải mã chuỗi sau: `NVQXIZLTMN2GM63XGNWGGMDNGNPXI327ORUDGX3GGFXDI3C7OIYHK3TEPU`
