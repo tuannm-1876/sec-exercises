@@ -4,8 +4,8 @@ Base-2: 10011010010
 Base-8: 2322
 Base-16: 4D2
 Base-36: YA
-Base-58: 
-Base-64: 
+Base-58: LG
+Base-64: TS
 
 Bài 2:
 
