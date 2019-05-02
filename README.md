@@ -18,3 +18,4 @@
 - [ ] 0x04 - Programming
 - [ ] 0x05 - SQli
 - [ ] 0x06 - One-Time Pad
+- [ ] 0x07 - Javascript
