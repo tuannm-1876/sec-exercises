@@ -11,18 +11,10 @@
 - Tạo commit cho tất cả các thay đổi và cập nhật repo
 
 ## Danh sách
-<<<<<<< HEAD
-- [x] 0x00
-- [x] 0x01
-- [ ] 0x02
-- [x] 0x03
-- [ ] 0x04
-=======
 - [x] 0x00 - Tutorial
-- [ ] 0x01 - Encoding
+- [x] 0x01 - Encoding
 - [ ] 0x02 - PHP
-- [ ] 0x03 - Basic Auth
+- [x] 0x03 - Basic Auth
 - [ ] 0x04 - Programming
 - [ ] 0x05 - SQli
 - [ ] 0x06 - One-Time Pad
->>>>>>> d55a7f0779efa5463b2d2197fe17e765c44e24ce
