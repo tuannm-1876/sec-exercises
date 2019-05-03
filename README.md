@@ -21,9 +21,9 @@
   - [x] Ex 3
   - [x] Ex 4
   - [x] Ex 5
-- [ ] 0x02 - PHP
+- [x] 0x02 - PHP
   - [ ] Ex 1
-  - [ ] Ex 2
+  - [x] Ex 2
 - [x] 0x03 - Basic Auth
   - [x] Ex 1
   - [x] Ex 2
@@ -31,8 +31,8 @@
   - [x] Ex 1
   - [ ] Ex 2
   - [x] Ex 3
-- [ ] 0x05 - SQli
-  - [ ] Ex 1
+- [x] 0x05 - SQli
+  - [x] Ex 1
 - [ ] 0x06 - One-Time Pad
   - [ ] Ex 1
 - [x] 0x07 - Javascript
