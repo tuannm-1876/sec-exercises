@@ -20,3 +20,21 @@ public class InviteValidator {
 }
 ```
 * Dễ dàng nhìn thấy cờ `GoldenTicket2018@flare-on.com`
+
+## Bài 2
+* Decompiler file code.cpython-37.pyc ta được 1 chương trình 
+```python
+def check_flag(flag):
+    a = 256
+    n = 10 ** 60
+    l = len(flag)
+    if l != 22:
+        return False
+    else:
+        result = 0
+        for i in range(0, l):
+            result += ord(flag[i]) * a ** (l - i - 1) % n
+
+        return result == 39830963251313012931406054205649358377525286926249590L
+```
+* Sử dụng chương trình python ex2-0x09.py ra cờ `just_ascii_to_hex_conv`

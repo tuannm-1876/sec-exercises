@@ -20,4 +20,4 @@ var rotFlag = flag.replace(/[a-zA-Z]/g, function(c) {
 * Chuyển đoạn `PyvragFvqrYbtvafNerRnfl@syner-ba.pbz` sang `rot13` ta được cờ `ClientSideLoginsAreEasy@flare-on.com`
 
 ## Bài 2
-* 
+*

@@ -17,3 +17,4 @@ if __name__ == "__main__":
     print(banner)
     flag = input("Enter passpharse: ").strip()
     print('Yes, flag is Flag{%s}' % flag if mod.check_flag(flag) else 'No!')
+    
