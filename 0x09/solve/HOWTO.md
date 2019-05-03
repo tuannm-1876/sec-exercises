@@ -38,3 +38,9 @@ def check_flag(flag):
         return result == 39830963251313012931406054205649358377525286926249590L
 ```
 * Sử dụng chương trình python ex2-0x09.py ra cờ `just_ascii_to_hex_conv`
+
+* `code anh Tiến`
+```python
+x= 39830963251313012931406054205649358377525286926249590
+hex(x)[2:-1].decode('hex')
+```
