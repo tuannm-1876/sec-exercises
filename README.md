@@ -31,6 +31,7 @@
   - [ ] Ex 1
   - [ ] Ex 2
   - [ ] Ex 3
+  - [ ] Ex 4
 - [ ] 0x05 - SQli
   - [ ] Ex 1
 - [ ] 0x06 - One-Time Pad
@@ -38,3 +39,11 @@
 - [ ] 0x07 - Javascript
   - [ ] Ex 1
   - [ ] Ex 2
+- [ ] 0x08 - Networking
+  - [ ] Ex 1
+- [ ] 0x09 - Reverse Engineering
+  - [ ] Ex 1
+  - [ ] Ex 2
+  - [ ] Ex 3
+  - [ ] Ex 4
+  - [ ] Ex 5
