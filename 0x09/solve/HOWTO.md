@@ -21,7 +21,7 @@ public class InviteValidator {
 ```
 * Dễ dàng nhìn thấy cờ `GoldenTicket2018@flare-on.com`
 
-## Bài 2
+## Bài 3
 * Decompiler file code.cpython-37.pyc ta được 1 chương trình 
 ```python
 def check_flag(flag):
