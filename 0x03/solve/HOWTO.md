@@ -1,6 +1,7 @@
 ## Bài 1:
-
-
+* Đọc dòng 13 cuủ tệp tin pcap trong Wireshark ta thấy có 1 đoạn `Basic cTg6RkxBR181dXg3eksyTktTSDhmU0dB`
+* Giải đoạn mã đó với base64 ta thu được `q8:FLAG_5ux7zK2NKSH8fSGA` 
+* Vậy cờ thu được là `FLAG_5ux7zK2NKSH8fSGA`
 ## Bài 2:
 
 * Đây là Digest access authentication
