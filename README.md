@@ -36,8 +36,9 @@
   - [ ] Ex 4
 - [ ] [0x05 - SQli](0x05)
   - [ ] Ex 1
-- [ ] [0x06 - One-Time Pad](0x06)
+- [ ] [0x06 - One-Time Pad + RNG](0x06)
   - [ ] Ex 1
+  - [ ] Ex 2
 - [ ] [0x07 - Javascript](0x07)
   - [ ] Ex 1
   - [ ] Ex 2
