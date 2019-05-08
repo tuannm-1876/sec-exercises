@@ -44,3 +44,32 @@ def check_flag(flag):
 x= 39830963251313012931406054205649358377525286926249590
 hex(x)[2:-1].decode('hex')
 ```
+
+## Bài 5:
+* Thử mở file `1BpnGjHOT7h5vvZsV4vISSb60Xj3pX5G.exe`
+Hiển thị ra `What is the password?`
+Chương trình bắt ta nhập mật khẩu, tìm kiếm mật khẩu được ẩn dấu trong file
+* Thử đọc các kí tự có thể đọc được trong file `1BpnGjHOT7h5vvZsV4vISSb60Xj3pX5G.exe` bằng lệnh trong terminal `strings -l e 1BpnGjHOT7h5vvZsV4vISSb60Xj3pX5G.exe` ta thu được 
+```
+@BRICK
+%s\%s
+IronManSucks
+Oh, hello Batman...
+I super hate you right now.
+What is the password?
+%15ls
+Go step on a brick!
+Oh look a rainbow.
+Everything is awesome!
+%s => %s
+BRICK
+ZImIT7DyCMOeF6
+```
+* Dòng cuối cùng có vẻ là mật khẩu, thử nhập vào và ta thu được
+```
+Everything is awesome!
+65141174.png => w
+```
+* Trong thư mục chứa file hiển thị thêm 1 file ảnh `65141174.png` là hình Lego chứa số `7` và chữ `w`
+* Làm tương tự với các file khác bằng chương trình `ex5-0x09.py` ta nhận được tất cả các ảnh và chữ
+* Ghép các chữ cái thu được ứng với số thứ tự trong ảnh ta thu được cờ
