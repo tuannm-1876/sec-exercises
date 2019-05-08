@@ -1,8 +1,22 @@
-from os import listdir
-from os.path import isfile, join
+import os
 import subprocess
-mypath = '/home/nguy.minh.tuan/Documents/sec-exercises/0x09/FLEGGO/'
-onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-for i in range(len(onlyfiles)):
-    text = "strings -e l /FLEGGO/" +onlyfiles[i]+ " | tail -1 | wine /FLEGGO/"+ onlyfiles[i]
-    print (text)
+def listdir():
+    list=[]
+    txt = os.popen('ls').read()
+    txt = txt.splitlines()
+    return txt
+def strings(list):
+    for i in list:
+        txt1 = os.popen('strings -e l '+i+' | tail -1').read()
+        txt1 = txt1.splitlines()
+        print txt1
+    return txt1
+def result(list):
+    for i in list:
+        txt2 = os.popen('wine '+i).read()
+        # txt2 = txt2.splitlines()
+        print txt2
+def main():
+    strings(listdir())
+    result(listdir())
+main()

@@ -49,4 +49,17 @@ print html
 ```
 * Ta thu được flag: `FLAG_VQcTWEK7zZYzvLhX`
 
-## Bài 1:
+## Bài 4:
+* Xem mã nguồn ta thấy trang web sử dụng database của SQLite
+* Đối với SQLite, DBMS này không có cơ chế xác thực bằng Username và Password mà chỉ đơn giản là đường dẫn tới file dữ liệu
+* Đọc trong mã nguồn ta thấy 
+`$db = new PDO('sqlite:database.db');`
+Vậy đường dẫn đến file database sẽ là 
+`http://ctfq.sweetduet.info:10080/~q35/database.db`
+* Tải file database rồi Select đến bảng user ta sẽ được
+
+| id        | Password              |
+| ----------|:---------------------:|
+| root      | FLAG_iySDmApNegJvwmxN |
+
+*Vậy cờ thu được là `FLAG_iySDmApNegJvwmxN`
