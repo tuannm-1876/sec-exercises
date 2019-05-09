@@ -211,3 +211,45 @@ __int16 sub_401000()
 .data:00403027                 db    0
 ```
 * Chạy file `ex4-0x09.py` ta tìm được cờ: `R_y0u_H0t_3n0ugH_t0_1gn1t3@flare-on.com`
+
+## Bài 6:
+* Decompile file apk, đọc file `JewlActivity.java` trong Source, đây là hàm xử lý chính nên ta tập trung vào hàm này
+* Đầu tiên ta chú ý đến biến `deviceId`, đây sẽ là biến quan trọng. 
+```java
+String deviceId = ((TelephonyManager) getSystemService("phone")).getDeviceId();
+        try {
+            MessageDigest instance = MessageDigest.getInstance("SHA-256");
+            instance.update(deviceId.getBytes("ASCII"));
+            String bigInteger = new BigInteger(instance.digest()).toString(16);
+            if (!deviceId.substring(0, 8).equals("99999991")) {
+                new Builder(this).setMessage("Your device is not supported").setCancelable(false).setPositiveButton("OK", new C0001b(this)).show();
+            }
+```
+* Đọc đoạn code trên ta thấy được `deviceId` được mã hóa theo `SHA-256` rồi chuyển sang mã `hex`
+```java
+if (!deviceId.substring(0, 8).equals("99999991")) {
+                new Builder(this).setMessage("Your device is not supported").setCancelable(false).setPositiveButton("OK", new C0001b(this)).show();
+            }
+```
+* Từ đoạn này ta thấy được `deviceId` sẽ có dạng `99999991xxxxx` với số x chưa biết. Mặt khác ta lại có mã hex sau khi mã hóa `SHA-256` nên ta tấn công `brute force`
+> Chương trình brute force tìm `deviceId`
+```python
+import hashlib
+deviceid = 999999910000000
+for i in range(0, 100000000):
+    text = str(deviceid+i)
+    check = hashlib.sha256(text).hexdigest()
+    print i
+    if check == "356280a58d3c437a45268a0b226d8cccad7b5dd28f5d1b37abf1873cc426a8a5":
+        print text
+        break   
+```
+* Kết quả trả về `deviceId = 999999913371337`
+* Đọc tiếp các đoạn code còn lại ta sẽ tìm thấy các thông tin giải mã `AES` với file raw của ảnh `jewel_c`
+* Tìm thấy file `jewel_c.png` trong đường dẫn `/Jewel_source_from_JADX/res/raw` rồi giải mã `AES` với các giá trị sau
+> `key: !999999913371337`
+> `IV:kLwC29iMc4nRMuE5`
+> `Mode:CBC`
+
+* Render ra ảnh ta thấy flag trong comment của ảnh
+* Vậy flag là `FLAG_9X4bfxgLTi5KtQss`
