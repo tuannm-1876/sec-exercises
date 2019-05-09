@@ -52,7 +52,7 @@
   - [x] Ex 3
   - [ ] Ex 4
   - [x] Ex 5
-  - [ ] Ex 6
+  - [] Ex 6
   - [ ] Ex 7
 - [ ] [0x0A - Cryptography](0x0A)
   - [ ] Ex 1
