@@ -73,3 +73,141 @@ Everything is awesome!
 * Trong thư mục chứa file hiển thị thêm 1 file ảnh `65141174.png` là hình Lego chứa số `7` và chữ `w`
 * Làm tương tự với các file khác bằng chương trình `ex5-0x09.py` ta nhận được tất cả các ảnh và chữ
 * Ghép các chữ cái thu được ứng với số thứ tự trong ảnh ta thu được cờ
+
+## Bài 4:
+* Decompile file ra ta thấy cấu trúc file như sau
+<figure class="image">
+  <img src="{{ /0x09/solve/ex4-01.png }}">
+</figure>
+
+* Nhìn hình thấy ta nhập cờ sẽ có 2 hướng báo đúng và báo sai rồi thoát
+* Convert code ta được
+``` c
+void __noreturn start()
+{
+  DWORD NumberOfBytesWritten; // [esp+0h] [ebp-4h]
+
+  NumberOfBytesWritten = 0;
+  hFile = GetStdHandle(0xFFFFFFF6);
+  dword_403074 = GetStdHandle(0xFFFFFFF5);
+  WriteFile(dword_403074, aG1v3M3T3hFl4g, 0x13u, &NumberOfBytesWritten, 0);
+  sub_4010F0(NumberOfBytesWritten);
+  if ( sub_401050() )
+    WriteFile(dword_403074, aG00dJ0b, 0xAu, &NumberOfBytesWritten, 0);
+  else
+    WriteFile(dword_403074, aN0tT00H0tRWe7r, 0x24u, &NumberOfBytesWritten, 0);
+  ExitProcess(0);
+}
+```
+* Vậy hàm `sub_401050()` sẽ xử lý cờ. Tập trung vào hàm này.
+* Tiếp tục convert code hàm `sub_401050()` ta được
+``` c
+signed int sub_401050()
+{
+  int v0; // ST04_4
+  int i; // [esp+4h] [ebp-8h]
+  unsigned int j; // [esp+4h] [ebp-8h]
+  char v4; // [esp+Bh] [ebp-1h]
+
+  v0 = sub_401020((int)byte_403078);            // v0 = lenght (chuoi flag) => flag co 39 ki tu
+                                                // v0 = 39
+  v4 = sub_401000();                            // v4=0x04
+  for ( i = v0 - 1; i >= 0; --i )
+  {
+    byte_403180[i] = v4 ^ byte_403078[i];
+    v4 = byte_403078[i];
+  }
+  for ( j = 0; j < 0x27; ++j )                  // j = 0 -> j = 39
+  {
+    if ( byte_403180[j] != (unsigned __int8)byte_403000[j] )// ham kiem tra flag
+      return 0;
+  }
+  return 1;
+}
+```
+* Ta cần tính giá trị trả về của `v0` và `v4`
+* Đọc tiếp code trả về của `v0`
+``` c
+int __cdecl sub_401020(int a1)
+{
+  int i; // [esp+0h] [ebp-4h]
+
+  for ( i = 0; *(_BYTE *)(i + a1); ++i )
+    ;
+  return i;
+}
+```
+* `v0` sẽ trả về giá trị lenght của chuỗi nhập vào (Cụ thể là giá trị lenght của flag)
+* Nhưng ở hàm bên dưới thấy
+``` c
+  for ( j = 0; j < 0x27; ++j )                  // j = 0 -> j = 39
+  {
+    if ( byte_403180[j] != (unsigned __int8)byte_403000[j] )// ham kiem tra flag
+      return 0;
+  }
+  return 1;
+```
+* Đây là hàm check flag có `j` chạy từ `0` đến `38` -> `lenght(flag)=39`
+* Vậy `v0=39`
+* Tiếp tục xem đến giá trị của `v4`
+``` c
+__int16 sub_401000()
+{
+  return (unsigned __int16)__ROL4__(-2147024896, 4) >> 1;
+}
+```
+* Hàm `sub_401000()` trả về giá trị 0x04
+* Trong đoạn code này ta lại thấy
+```c
+  for ( i = v0 - 1; i >= 0; --i )
+  {
+    byte_403180[i] = v4 ^ byte_403078[i];
+    v4 = byte_403078[i];
+  }
+```
+* Mảng nhập vào sẽ XOR liên tục với `v4` rồi lưu giá trị cũ vào `v4`
+* Vậy ta chỉ cần tìm được chuỗi kiểm tra rồi XOR ngược lại với `v4` ta sẽ tìm được cờ
+* Tìm được chuỗi `byte_403078`
+```
+.data:00403000 byte_403000     db 0Dh                  ; DATA XREF: sub_401050+84↑r
+.data:00403001                 db  26h ; &
+.data:00403002                 db  49h ; I
+.data:00403003                 db  45h ; E
+.data:00403004                 db  2Ah ; *
+.data:00403005                 db  17h
+.data:00403006                 db  78h ; x
+.data:00403007                 db  44h ; D
+.data:00403008                 db  2Bh ; +
+.data:00403009                 db  6Ch ; l
+.data:0040300A                 db  5Dh ; ]
+.data:0040300B                 db  5Eh ; ^
+.data:0040300C                 db  45h ; E
+.data:0040300D                 db  12h
+.data:0040300E                 db  2Fh ; /
+.data:0040300F                 db  17h
+.data:00403010                 db  2Bh ; +
+.data:00403011                 db  44h ; D
+.data:00403012                 db  6Fh ; o
+.data:00403013                 db  6Eh ; n
+.data:00403014                 db  56h ; V
+.data:00403015                 db    9
+.data:00403016                 db  5Fh ; _
+.data:00403017                 db  45h ; E
+.data:00403018                 db  47h ; G
+.data:00403019                 db  73h ; s
+.data:0040301A                 db  26h ; &
+.data:0040301B                 db  0Ah
+.data:0040301C                 db  0Dh
+.data:0040301D                 db  13h
+.data:0040301E                 db  17h
+.data:0040301F                 db  48h ; H
+.data:00403020                 db  42h ; B
+.data:00403021                 db    1
+.data:00403022                 db  40h ; @
+.data:00403023                 db  4Dh ; M
+.data:00403024                 db  0Ch
+.data:00403025                 db    2
+.data:00403026                 db  69h ; i
+.data:00403027                 db    0
+```
+* Chạy file `ex4-0x09.py` ta tìm được cờ: `R_y0u_H0t_3n0ugH_t0_1gn1t3@flare-on.com`
