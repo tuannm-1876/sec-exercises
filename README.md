@@ -13,6 +13,7 @@
 - Tạo commit cho tất cả các thay đổi và cập nhật repo
 
 ## Danh sách
+
 - [x] [0x00 - Tutorial](0x00)
   - [ ] Ex 1
 - [ ] [0x01 - Encoding](0x01)
@@ -42,9 +43,19 @@
 - [ ] [0x07 - Javascript](0x07)
   - [ ] Ex 1
   - [ ] Ex 2
+  - [ ] Ex 3
 - [ ] [0x08 - Networking](0x08)
   - [ ] Ex 1
+  - [ ] Ex 2
 - [ ] [0x09 - Reverse Engineering](0x09)
+  - [ ] Ex 1
+  - [ ] Ex 2
+  - [ ] Ex 3
+  - [ ] Ex 4
+  - [ ] Ex 5
+  - [ ] Ex 6
+  - [ ] Ex 7
+- [ ] [0x0A - Cryptography](0x0A)
   - [ ] Ex 1
   - [ ] Ex 2
   - [ ] Ex 3
