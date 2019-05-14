@@ -11,3 +11,7 @@
 ## Bài 2
 * Run file ex2-0x04.py ta thu được cờ
   `Flag{well_done_sudoku_master}`
+
+## Bài 4
+* Run file ex4-0x04.py ta thu được cờ
+`W3LK0M3_H3re`
