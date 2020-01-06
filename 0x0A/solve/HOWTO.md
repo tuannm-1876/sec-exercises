@@ -30,3 +30,7 @@ PADDING PADDING PADDING PADDING PADDING PADDING PADDING PADDING PADDING PADDING 
   * Export object HTTP ta thu được 2 file `flag.jpg` và 2 file `favicon.ico`
   * Mở 2 ảnh `flag.jpg` rồi ghép 2 ảnh vào nhau ta thu được cờ
 >Flag: FLAG_txkbcPbk2ZJagaXs
+
+# Bài 2
+Run code with sage ex2-0x0A.sage
+> Flag: FLAG_545783032743911043438387247245888260273
